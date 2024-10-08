@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: audition-api
+  config:
+    import: "optional:configserver:"
+  main:
+    allow-bean-definition-overriding: true
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  mvc:
+    throw-exception-if-no-handler-found: true
+  sleuth:
+    sampler:
+      probability: 1.0
+
+audition:
+  urls:
+    posts: "https://jsonplaceholder.typicode.com/posts"
+    comments: "https://jsonplaceholder.typicode.com/comments"
+
+server:
+  max-http-request-header-size: 16KB
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include: '*' #TODO enable only info and health for security purposes. Consider that we may want to still access other actuator endpoints securely.
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10000
+        permittedNumberOfCallsInHalfOpenState: 3
+        ignoreExceptions:
+          - com.audition.common.exception.SystemException

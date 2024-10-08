@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.audition.common.UserIdValidatorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-10-08T07:31:03" hostname="Madhawas-MacBook-Pro.local" time="0.006">
+  <properties/>
+  <testcase name="testValidUserIdList()" classname="com.audition.common.UserIdValidatorTest" time="0.001"/>
+  <testcase name="testInvalidUserIdList()" classname="com.audition.common.UserIdValidatorTest" time="0.001"/>
+  <testcase name="testInvalidSingleUserId()" classname="com.audition.common.UserIdValidatorTest" time="0.001"/>
+  <testcase name="testValidSingleUserId()" classname="com.audition.common.UserIdValidatorTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

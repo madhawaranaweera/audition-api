@@ -50,6 +50,7 @@ jacocoTestCoverageVerification {
             enabled = false
             element = 'CLASS'
             includes = ['org.gradle.*']
+            excludes = ['com.audition.web.advice.ExceptionControllerAdvice']
 
             limit {
                 counter = 'LINE'
@@ -61,7 +62,7 @@ jacocoTestCoverageVerification {
 }
 
 spotbugs {
-    ignoreFailures = true
+    ignoreFailures = false
     effort = 'max'
     reportLevel = 'high'
 }

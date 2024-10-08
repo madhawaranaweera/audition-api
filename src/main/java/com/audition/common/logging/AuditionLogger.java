@@ -1,6 +1,5 @@
 package com.audition.common.logging;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.springframework.http.ProblemDetail;
 import org.springframework.stereotype.Component;
@@ -20,15 +19,15 @@ public class AuditionLogger {
         }
     }
 
-    public void debug(final Logger logger, final String message) {
+    public void debug(final Logger logger, final String message, final Object object) {
         if (logger.isDebugEnabled()) {
-            logger.debug(message);
+            logger.debug(message, object);
         }
     }
 
-    public void warn(final Logger logger, final String message) {
+    public void warn(final Logger logger, final String message, final Object object) {
         if (logger.isWarnEnabled()) {
-            logger.warn(message);
+            logger.warn(message, object);
         }
     }
 
@@ -57,13 +56,38 @@ public class AuditionLogger {
         }
     }
 
-    private String createStandardProblemDetailMessage(final ProblemDetail standardProblemDetail) {
-        // TODO Add implementation here.
-        return StringUtils.EMPTY;
+    private String createStandardProblemDetailMessage(final ProblemDetail problemDetail) {
+        final StringBuilder messageBuilder = new StringBuilder(256);
+
+        messageBuilder.append("Type: ").append(problemDetail.getType())
+            .append(", Title: ").append(problemDetail.getTitle())
+            .append(", Status: ").append(problemDetail.getStatus())
+            .append(", Detail: ").append(problemDetail.getDetail() != null ? problemDetail.getDetail() : "N/A")
+            .append(", Instance: ").append(problemDetail.getInstance() != null ? problemDetail.getInstance() : "N/A");
+
+        if (problemDetail.getProperties() != null && !problemDetail.getProperties().isEmpty()) {
+            messageBuilder.append(", Properties: ").append(problemDetail.getProperties());
+        }
+
+        return messageBuilder.toString();
     }
 
+
     private String createBasicErrorResponseMessage(final Integer errorCode, final String message) {
-        // TODO Add implementation here.
-        return StringUtils.EMPTY;
+        if (errorCode == null) {
+            return "Error: No error code provided.";
+        }
+
+        final StringBuilder responseMessage = new StringBuilder(256);
+        responseMessage.append("Error Code: ").append(errorCode).append(", ");
+
+        if (message != null && !message.isEmpty()) {
+            responseMessage.append("Message: ").append(message);
+        } else {
+            responseMessage.append("Message: No additional message provided.");
+        }
+
+        return responseMessage.toString();
     }
+
 }

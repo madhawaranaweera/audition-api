@@ -1,0 +1,7 @@
+/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/test/com/audition/contract/AuditionControllerContractTest.class
+/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/test/com/audition/integration/AuditionIntegrationTest.class
+/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/test/com/audition/common/PostIdValidatorTest.class
+/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/test/com/audition/common/UserIdValidatorTest.class
+/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/test/com/audition/common/SystemExceptionTest.class
+/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/test/com/audition/common/AuditionLoggerTest.class
+/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/test/com/audition/service/AuditionServiceTest.class
