@@ -7,6 +7,7 @@ import com.audition.model.AuditionPost;
 import com.audition.web.AuditionPostController;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +52,7 @@ public class AuditionIntegrationClient {
             auditionLogger.debug(LOG, "Making request to get post api={}", urlWithParams);
 
             final AuditionPost[] posts = restTemplate.getForObject(urlWithParams, AuditionPost[].class);
-            return posts != null ? List.of(posts) : List.of();
+            return Optional.ofNullable(posts).map(List::of).orElseGet(List::of);
         } catch (HttpClientErrorException e) {
             auditionLogger.error(LOG, "Error fetching posts for user IDs={}", userIds);
             throw new SystemException("Error fetching posts for user IDs " + userIds, e.getMessage(),
@@ -99,7 +100,7 @@ public class AuditionIntegrationClient {
             auditionLogger.debug(LOG, "Making request to get comments by id={}", urlWithParams);
 
             final AuditionComment[] posts = restTemplate.getForObject(urlWithParams, AuditionComment[].class, id);
-            return posts != null ? List.of(posts) : List.of();
+            return Optional.ofNullable(posts).map(List::of).orElseGet(List::of);
         } catch (final HttpClientErrorException e) {
             auditionLogger.error(LOG, "Error fetching comments for post ID={}", id);
             if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
@@ -129,7 +130,7 @@ public class AuditionIntegrationClient {
             auditionLogger.debug(LOG, "Making request to get comments={}", urlWithParams);
             final AuditionComment[] commentsArray = restTemplate.getForObject(urlWithParams, AuditionComment[].class);
 
-            return commentsArray != null ? List.of(commentsArray) : List.of();
+            return Optional.ofNullable(commentsArray).map(List::of).orElseGet(List::of);
         } catch (HttpClientErrorException e) {
             auditionLogger.error(LOG, "Error fetching comments for post IDs={}", postIds);
             throw new SystemException("Error fetching comments for postIds " + postIds, e.getMessage(),
