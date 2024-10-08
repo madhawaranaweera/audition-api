@@ -58,8 +58,10 @@ class AuditionLoggerTest {
     @Test
     void testErrorWithMessage() {
         when(logger.isErrorEnabled()).thenReturn(true);
-        auditionLogger.error(logger, "Error message");
-        verify(logger, times(1)).error("Error message");
+        final String errorMessage = "Error message";
+        final Object errorObject = new Exception("Sample exception");
+        auditionLogger.error(logger, errorMessage, errorObject);
+        verify(logger, times(1)).error(errorMessage, errorObject);
     }
 
     @Test

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.audition.common.AuditionLoggerTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-10-08T13:23:11" hostname="Madhawas-MacBook-Pro.local" time="1.002">
+<testsuite name="com.audition.common.AuditionLoggerTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-10-08T14:22:45" hostname="Madhawas-MacBook-Pro.local" time="4.033">
   <properties/>
-  <testcase name="testInfoWithMessageAndObject()" classname="com.audition.common.AuditionLoggerTest" time="0.934"/>
-  <testcase name="testLogStandardProblemDetail()" classname="com.audition.common.AuditionLoggerTest" time="0.055"/>
-  <testcase name="testLogHttpStatusCodeError()" classname="com.audition.common.AuditionLoggerTest" time="0.002"/>
-  <testcase name="testErrorWithMessage()" classname="com.audition.common.AuditionLoggerTest" time="0.001"/>
-  <testcase name="testInfoWithMessage()" classname="com.audition.common.AuditionLoggerTest" time="0.001"/>
-  <testcase name="testWarnWithMessageAndObject()" classname="com.audition.common.AuditionLoggerTest" time="0.001"/>
-  <testcase name="testLogErrorWithException()" classname="com.audition.common.AuditionLoggerTest" time="0.001"/>
-  <testcase name="testDebugWithMessageAndObject()" classname="com.audition.common.AuditionLoggerTest" time="0.001"/>
+  <testcase name="testInfoWithMessageAndObject()" classname="com.audition.common.AuditionLoggerTest" time="3.791"/>
+  <testcase name="testLogStandardProblemDetail()" classname="com.audition.common.AuditionLoggerTest" time="0.199"/>
+  <testcase name="testLogHttpStatusCodeError()" classname="com.audition.common.AuditionLoggerTest" time="0.007"/>
+  <testcase name="testErrorWithMessage()" classname="com.audition.common.AuditionLoggerTest" time="0.003"/>
+  <testcase name="testInfoWithMessage()" classname="com.audition.common.AuditionLoggerTest" time="0.004"/>
+  <testcase name="testWarnWithMessageAndObject()" classname="com.audition.common.AuditionLoggerTest" time="0.004"/>
+  <testcase name="testLogErrorWithException()" classname="com.audition.common.AuditionLoggerTest" time="0.003"/>
+  <testcase name="testDebugWithMessageAndObject()" classname="com.audition.common.AuditionLoggerTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -53,32 +53,34 @@ public class AuditionIntegrationClient {
 <span class="fc" id="L53">            final AuditionPost[] posts = restTemplate.getForObject(urlWithParams, AuditionPost[].class);</span>
 <span class="pc bpc" id="L54" title="1 of 2 branches missed.">            return posts != null ? List.of(posts) : List.of();</span>
 <span class="fc" id="L55">        } catch (HttpClientErrorException e) {</span>
-<span class="fc" id="L56">            throw new SystemException(&quot;Error fetching posts for user IDs &quot; + userIds, e.getMessage(),</span>
-<span class="fc" id="L57">                e.getRawStatusCode(), e);</span>
+<span class="fc" id="L56">            auditionLogger.error(LOG, &quot;Error fetching posts for user IDs={}&quot;, userIds);</span>
+<span class="fc" id="L57">            throw new SystemException(&quot;Error fetching posts for user IDs &quot; + userIds, e.getMessage(),</span>
+<span class="fc" id="L58">                e.getRawStatusCode(), e);</span>
         }
     }
 
     @CircuitBreaker(name = &quot;getPostById&quot;)
     public AuditionPost getPostById(final String id) {
         try {
-<span class="fc" id="L64">            auditionLogger.info(LOG, &quot;Fetching post with ID={}&quot;, id);</span>
+<span class="fc" id="L65">            auditionLogger.info(LOG, &quot;Fetching post with ID={}&quot;, id);</span>
 
-<span class="fc" id="L66">            final String urlWithParams = UriComponentsBuilder</span>
-<span class="fc" id="L67">                .fromHttpUrl(postsUrl)</span>
-<span class="fc" id="L68">                .pathSegment(&quot;{id}&quot;)</span>
-<span class="fc" id="L69">                .buildAndExpand(id)</span>
-<span class="fc" id="L70">                .toUriString();</span>
+<span class="fc" id="L67">            final String urlWithParams = UriComponentsBuilder</span>
+<span class="fc" id="L68">                .fromHttpUrl(postsUrl)</span>
+<span class="fc" id="L69">                .pathSegment(&quot;{id}&quot;)</span>
+<span class="fc" id="L70">                .buildAndExpand(id)</span>
+<span class="fc" id="L71">                .toUriString();</span>
 
-<span class="fc" id="L72">            auditionLogger.debug(LOG, &quot;Making request to get posts by id api={}&quot;, urlWithParams);</span>
+<span class="fc" id="L73">            auditionLogger.debug(LOG, &quot;Making request to get posts by id api={}&quot;, urlWithParams);</span>
 
-<span class="fc" id="L74">            return restTemplate.getForObject(urlWithParams, AuditionPost.class);</span>
-<span class="fc" id="L75">        } catch (final HttpClientErrorException e) {</span>
-<span class="fc bfc" id="L76" title="All 2 branches covered.">            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {</span>
-<span class="fc" id="L77">                throw new SystemException(&quot;Cannot find a Post with id &quot; + id, &quot;Resource Not Found&quot;,</span>
-<span class="fc" id="L78">                    404, e);</span>
+<span class="fc" id="L75">            return restTemplate.getForObject(urlWithParams, AuditionPost.class);</span>
+<span class="fc" id="L76">        } catch (final HttpClientErrorException e) {</span>
+<span class="fc" id="L77">            auditionLogger.error(LOG, &quot;Error fetching posts for post ID={}&quot;, id);</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {</span>
+<span class="fc" id="L79">                throw new SystemException(&quot;Cannot find a Post with id &quot; + id, &quot;Resource Not Found&quot;,</span>
+<span class="fc" id="L80">                    404, e);</span>
             } else {
-<span class="fc" id="L80">                throw new SystemException(&quot;Error fetching post with ID &quot; + id + &quot;: &quot; + e.getMessage(),</span>
-<span class="fc" id="L81">                    e.getStatusText(), e.getRawStatusCode(), e);</span>
+<span class="fc" id="L82">                throw new SystemException(&quot;Error fetching post with ID &quot; + id + &quot;: &quot; + e.getMessage(),</span>
+<span class="fc" id="L83">                    e.getStatusText(), e.getRawStatusCode(), e);</span>
             }
         }
     }
@@ -86,25 +88,26 @@ public class AuditionIntegrationClient {
     @CircuitBreaker(name = &quot;getCommentsByPostId&quot;)
     public List&lt;AuditionComment&gt; getCommentsByPostId(final String id) {
         try {
-<span class="fc" id="L89">            auditionLogger.info(LOG, &quot;Fetching comments for post ID={}&quot;, id);</span>
+<span class="fc" id="L91">            auditionLogger.info(LOG, &quot;Fetching comments for post ID={}&quot;, id);</span>
 
-<span class="fc" id="L91">            final String urlWithParams = UriComponentsBuilder</span>
-<span class="fc" id="L92">                .fromHttpUrl(postsUrl)</span>
-<span class="fc" id="L93">                .pathSegment(&quot;{id}&quot;, &quot;comments&quot;)</span>
-<span class="fc" id="L94">                .buildAndExpand(id)</span>
-<span class="fc" id="L95">                .toUriString();</span>
+<span class="fc" id="L93">            final String urlWithParams = UriComponentsBuilder</span>
+<span class="fc" id="L94">                .fromHttpUrl(postsUrl)</span>
+<span class="fc" id="L95">                .pathSegment(&quot;{id}&quot;, &quot;comments&quot;)</span>
+<span class="fc" id="L96">                .buildAndExpand(id)</span>
+<span class="fc" id="L97">                .toUriString();</span>
 
-<span class="fc" id="L97">            auditionLogger.debug(LOG, &quot;Making request to get comments by id={}&quot;, urlWithParams);</span>
+<span class="fc" id="L99">            auditionLogger.debug(LOG, &quot;Making request to get comments by id={}&quot;, urlWithParams);</span>
 
-<span class="fc" id="L99">            final AuditionComment[] posts = restTemplate.getForObject(urlWithParams, AuditionComment[].class, id);</span>
-<span class="pc bpc" id="L100" title="1 of 2 branches missed.">            return posts != null ? List.of(posts) : List.of();</span>
-<span class="fc" id="L101">        } catch (final HttpClientErrorException e) {</span>
-<span class="pc bpc" id="L102" title="1 of 2 branches missed.">            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {</span>
-<span class="fc" id="L103">                throw new SystemException(&quot;Cannot find a Post with id &quot; + id, &quot;Resource Not Found&quot;,</span>
-<span class="fc" id="L104">                    404, e);</span>
+<span class="fc" id="L101">            final AuditionComment[] posts = restTemplate.getForObject(urlWithParams, AuditionComment[].class, id);</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">            return posts != null ? List.of(posts) : List.of();</span>
+<span class="fc" id="L103">        } catch (final HttpClientErrorException e) {</span>
+<span class="fc" id="L104">            auditionLogger.error(LOG, &quot;Error fetching comments for post ID={}&quot;, id);</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {</span>
+<span class="fc" id="L106">                throw new SystemException(&quot;Cannot find a Post with id &quot; + id, &quot;Resource Not Found&quot;,</span>
+<span class="fc" id="L107">                    404, e);</span>
             } else {
-<span class="nc" id="L106">                throw new SystemException(&quot;Error fetching post with id &quot; + id + &quot;: &quot; + e.getMessage(),</span>
-<span class="nc" id="L107">                    e.getStatusText(), e.getRawStatusCode(), e);</span>
+<span class="nc" id="L109">                throw new SystemException(&quot;Error fetching post with id &quot; + id + &quot;: &quot; + e.getMessage(),</span>
+<span class="nc" id="L110">                    e.getStatusText(), e.getRawStatusCode(), e);</span>
             }
         }
     }
@@ -113,23 +116,24 @@ public class AuditionIntegrationClient {
     public List&lt;AuditionComment&gt; getComments(final List&lt;String&gt; postIds) {
         String urlWithParams;
         try {
-<span class="fc" id="L116">            auditionLogger.info(LOG, &quot;Fetching comments for post IDs={}&quot;, postIds);</span>
+<span class="fc" id="L119">            auditionLogger.info(LOG, &quot;Fetching comments for post IDs={}&quot;, postIds);</span>
 
-<span class="fc bfc" id="L118" title="All 2 branches covered.">            if (CollectionUtils.isEmpty(postIds)) {</span>
-<span class="fc" id="L119">                urlWithParams = commentsUrl;</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">            if (CollectionUtils.isEmpty(postIds)) {</span>
+<span class="fc" id="L122">                urlWithParams = commentsUrl;</span>
             } else {
-<span class="fc" id="L121">                urlWithParams = UriComponentsBuilder</span>
-<span class="fc" id="L122">                    .fromHttpUrl(commentsUrl)</span>
-<span class="fc" id="L123">                    .queryParam(&quot;postId&quot;, postIds.toArray())</span>
-<span class="fc" id="L124">                    .toUriString();</span>
+<span class="fc" id="L124">                urlWithParams = UriComponentsBuilder</span>
+<span class="fc" id="L125">                    .fromHttpUrl(commentsUrl)</span>
+<span class="fc" id="L126">                    .queryParam(&quot;postId&quot;, postIds.toArray())</span>
+<span class="fc" id="L127">                    .toUriString();</span>
             }
-<span class="fc" id="L126">            auditionLogger.debug(LOG, &quot;Making request to get comments={}&quot;, urlWithParams);</span>
-<span class="fc" id="L127">            final AuditionComment[] commentsArray = restTemplate.getForObject(urlWithParams, AuditionComment[].class);</span>
+<span class="fc" id="L129">            auditionLogger.debug(LOG, &quot;Making request to get comments={}&quot;, urlWithParams);</span>
+<span class="fc" id="L130">            final AuditionComment[] commentsArray = restTemplate.getForObject(urlWithParams, AuditionComment[].class);</span>
 
-<span class="pc bpc" id="L129" title="1 of 2 branches missed.">            return commentsArray != null ? List.of(commentsArray) : List.of();</span>
-<span class="fc" id="L130">        } catch (HttpClientErrorException e) {</span>
-<span class="fc" id="L131">            throw new SystemException(&quot;Error fetching comments for postIds &quot; + postIds, e.getMessage(),</span>
-<span class="fc" id="L132">                e.getRawStatusCode(), e);</span>
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">            return commentsArray != null ? List.of(commentsArray) : List.of();</span>
+<span class="fc" id="L133">        } catch (HttpClientErrorException e) {</span>
+<span class="fc" id="L134">            auditionLogger.error(LOG, &quot;Error fetching comments for post IDs={}&quot;, postIds);</span>
+<span class="fc" id="L135">            throw new SystemException(&quot;Error fetching comments for postIds &quot; + postIds, e.getMessage(),</span>
+<span class="fc" id="L136">                e.getRawStatusCode(), e);</span>
         }
     }
 }

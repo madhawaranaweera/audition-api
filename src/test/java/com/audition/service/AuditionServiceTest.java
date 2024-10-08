@@ -17,6 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+@SuppressWarnings("PMD.UnusedPrivateField")
 class AuditionServiceTest {
 
     @Mock
@@ -86,7 +87,7 @@ class AuditionServiceTest {
     void testGetCommentsSuccess() {
         final List<String> userIds = Arrays.asList("1", "2", "3");
         final List<AuditionComment> expectedComments = Arrays.asList(new AuditionComment(),
-            new AuditionComment()); // Replace with actual comment instances
+            new AuditionComment());
         when(auditionIntegrationClient.getComments(userIds)).thenReturn(expectedComments);
 
         final List<AuditionComment> actualComments = auditionService.getComments(userIds);

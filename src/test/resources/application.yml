@@ -17,14 +17,3 @@ audition:
   urls:
     posts: "http://localhost:8081/posts"
     comments: "http://localhost:8081/comments"
-
-resilience4j:
-  circuitbreaker:
-    configs:
-      default:
-        failureRateThreshold: 50
-        waitDurationInOpenState: 10000
-        permittedNumberOfCallsInHalfOpenState: 3
-#        ignoreExceptions:
-#          - com.audition.common.exception.SystemException
-#          - org.springframework.web.client.HttpClientErrorException

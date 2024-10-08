@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.audition.common.IdValidatorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-10-08T13:23:12" hostname="Madhawas-MacBook-Pro.local" time="0.023">
+<testsuite name="com.audition.common.IdValidatorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-10-08T14:22:49" hostname="Madhawas-MacBook-Pro.local" time="0.093">
   <properties/>
-  <testcase name="testValidPostIdList()" classname="com.audition.common.IdValidatorTest" time="0.018"/>
-  <testcase name="testInvalidPostIdList()" classname="com.audition.common.IdValidatorTest" time="0.001"/>
-  <testcase name="testInvalidSinglePostId()" classname="com.audition.common.IdValidatorTest" time="0.001"/>
+  <testcase name="testValidPostIdList()" classname="com.audition.common.IdValidatorTest" time="0.073"/>
+  <testcase name="testInvalidPostIdList()" classname="com.audition.common.IdValidatorTest" time="0.003"/>
+  <testcase name="testInvalidSinglePostId()" classname="com.audition.common.IdValidatorTest" time="0.002"/>
   <testcase name="testValidSinglePostId()" classname="com.audition.common.IdValidatorTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

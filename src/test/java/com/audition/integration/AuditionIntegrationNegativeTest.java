@@ -131,7 +131,7 @@ class AuditionIntegrationNegativeTest {
 
     @Test
     void testGetCommentsNotFound() {
-        final List<String> postIds = Collections.singletonList("1"); // Example post ID
+        final List<String> postIds = Collections.singletonList("1");
         stubFor(get(urlPathEqualTo(COMMENT))
             .withQueryParam("postId", equalTo("1"))
             .willReturn(aResponse()

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.624s</div>
+<div class="counter">0.382s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,42 +79,42 @@
 </thead>
 <tr>
 <td class="success">testGetCommentsByPostId()</td>
-<td class="success">0.016s</td>
+<td class="success">0.008s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetCommentsByPostIdInvalid()</td>
-<td class="success">0.064s</td>
+<td class="success">0.037s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetCommentsByPostIds()</td>
-<td class="success">0.147s</td>
+<td class="success">0.098s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetCommentsByPostIdsInvalid()</td>
-<td class="success">0.017s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetPostByIdInvalid()</td>
-<td class="success">0.019s</td>
+<td class="success">0.012s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetPosts()</td>
-<td class="success">0.327s</td>
+<td class="success">0.193s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetPostsById()</td>
-<td class="success">0.014s</td>
+<td class="success">0.012s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetPostsInvalidUserIds()</td>
-<td class="success">0.020s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -122,42 +122,42 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>00:23:12.713 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [AuditionContractTest]: using SpringBootContextLoader
-00:23:12.722 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.audition.contract.AuditionContractTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-00:23:12.788 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [AuditionContractTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-00:23:13.011 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [AuditionContractTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-00:23:13.013 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [AuditionContractTest], class annotated with @DirtiesContext [false] with mode [null]
-00:23:14,183 |-INFO in ch.qos.logback.core.joran.util.ConfigurationWatchListUtil@6bab373c - Adding [jar:file:/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/3.0.3/d781e7afbeb3d05ce361e9cc4fa7d38b15fb3862/spring-boot-3.0.3.jar!/org/springframework/boot/logging/logback/defaults.xml] to configuration watch list.
-00:23:14,183 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@493ed8e6 - URL [jar:file:/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/3.0.3/d781e7afbeb3d05ce361e9cc4fa7d38b15fb3862/spring-boot-3.0.3.jar!/org/springframework/boot/logging/logback/defaults.xml] is not of type file
-00:23:14,186 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word clr with class [org.springframework.boot.logging.logback.ColorConverter]
-00:23:14,186 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word wex with class [org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter]
-00:23:14,186 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word wEx with class [org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter]
-00:23:14,237 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [console]
-00:23:14,237 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-00:23:14,242 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-00:23:14,269 |-WARN in ch.qos.logback.core.model.processor.AppenderModelHandler - Appender named [flatfile] not referenced. Skipping further processing.
-00:23:14,269 |-WARN in ch.qos.logback.core.model.processor.AppenderModelHandler - Appender named [logstash] not referenced. Skipping further processing.
-00:23:14,269 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.startup.DigesterFactory] to ERROR
-00:23:14,269 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7b897456 - Propagating ERROR level on Logger[org.apache.catalina.startup.DigesterFactory] onto the JUL framework
-00:23:14,270 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.util.LifecycleBase] to ERROR
-00:23:14,270 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7b897456 - Propagating ERROR level on Logger[org.apache.catalina.util.LifecycleBase] onto the JUL framework
-00:23:14,270 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.coyote.http11.Http11NioProtocol] to WARN
-00:23:14,270 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7b897456 - Propagating WARN level on Logger[org.apache.coyote.http11.Http11NioProtocol] onto the JUL framework
-00:23:14,270 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.sshd.common.util.SecurityUtils] to WARN
-00:23:14,270 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7b897456 - Propagating WARN level on Logger[org.apache.sshd.common.util.SecurityUtils] onto the JUL framework
-00:23:14,270 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.tomcat.util.net.NioSelectorPool] to WARN
-00:23:14,270 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7b897456 - Propagating WARN level on Logger[org.apache.tomcat.util.net.NioSelectorPool] onto the JUL framework
-00:23:14,270 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.eclipse.jetty.util.component.AbstractLifeCycle] to ERROR
-00:23:14,270 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7b897456 - Propagating ERROR level on Logger[org.eclipse.jetty.util.component.AbstractLifeCycle] onto the JUL framework
-00:23:14,271 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.hibernate.validator.internal.util.Version] to WARN
-00:23:14,271 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7b897456 - Propagating WARN level on Logger[org.hibernate.validator.internal.util.Version] onto the JUL framework
-00:23:14,271 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.boot.actuate.endpoint.jmx] to WARN
-00:23:14,271 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7b897456 - Propagating WARN level on Logger[org.springframework.boot.actuate.endpoint.jmx] onto the JUL framework
-00:23:14,271 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
-00:23:14,271 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7b897456 - Propagating INFO level on Logger[ROOT] onto the JUL framework
-00:23:14,271 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [console] to Logger[ROOT]
-00:23:14,271 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@4dcc0e3d - End of configuration.
-00:23:14,271 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@7fecc26f - Registering current configuration as safe fallback point
+<pre>01:22:50.708 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [AuditionContractTest]: using SpringBootContextLoader
+01:22:50.738 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.audition.contract.AuditionContractTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+01:22:50.915 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [AuditionContractTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+01:22:51.416 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [AuditionContractTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+01:22:51.418 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [AuditionContractTest], class annotated with @DirtiesContext [false] with mode [null]
+01:22:53,393 |-INFO in ch.qos.logback.core.joran.util.ConfigurationWatchListUtil@16df0ebd - Adding [jar:file:/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/3.0.3/d781e7afbeb3d05ce361e9cc4fa7d38b15fb3862/spring-boot-3.0.3.jar!/org/springframework/boot/logging/logback/defaults.xml] to configuration watch list.
+01:22:53,393 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@29becf8b - URL [jar:file:/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/3.0.3/d781e7afbeb3d05ce361e9cc4fa7d38b15fb3862/spring-boot-3.0.3.jar!/org/springframework/boot/logging/logback/defaults.xml] is not of type file
+01:22:53,397 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word clr with class [org.springframework.boot.logging.logback.ColorConverter]
+01:22:53,397 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word wex with class [org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter]
+01:22:53,397 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word wEx with class [org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter]
+01:22:53,457 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [console]
+01:22:53,457 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+01:22:53,464 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+01:22:53,494 |-WARN in ch.qos.logback.core.model.processor.AppenderModelHandler - Appender named [flatfile] not referenced. Skipping further processing.
+01:22:53,494 |-WARN in ch.qos.logback.core.model.processor.AppenderModelHandler - Appender named [logstash] not referenced. Skipping further processing.
+01:22:53,494 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.startup.DigesterFactory] to ERROR
+01:22:53,494 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@628b1538 - Propagating ERROR level on Logger[org.apache.catalina.startup.DigesterFactory] onto the JUL framework
+01:22:53,495 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.util.LifecycleBase] to ERROR
+01:22:53,495 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@628b1538 - Propagating ERROR level on Logger[org.apache.catalina.util.LifecycleBase] onto the JUL framework
+01:22:53,495 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.coyote.http11.Http11NioProtocol] to WARN
+01:22:53,495 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@628b1538 - Propagating WARN level on Logger[org.apache.coyote.http11.Http11NioProtocol] onto the JUL framework
+01:22:53,495 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.sshd.common.util.SecurityUtils] to WARN
+01:22:53,495 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@628b1538 - Propagating WARN level on Logger[org.apache.sshd.common.util.SecurityUtils] onto the JUL framework
+01:22:53,495 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.tomcat.util.net.NioSelectorPool] to WARN
+01:22:53,495 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@628b1538 - Propagating WARN level on Logger[org.apache.tomcat.util.net.NioSelectorPool] onto the JUL framework
+01:22:53,495 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.eclipse.jetty.util.component.AbstractLifeCycle] to ERROR
+01:22:53,495 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@628b1538 - Propagating ERROR level on Logger[org.eclipse.jetty.util.component.AbstractLifeCycle] onto the JUL framework
+01:22:53,496 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.hibernate.validator.internal.util.Version] to WARN
+01:22:53,496 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@628b1538 - Propagating WARN level on Logger[org.hibernate.validator.internal.util.Version] onto the JUL framework
+01:22:53,496 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.boot.actuate.endpoint.jmx] to WARN
+01:22:53,496 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@628b1538 - Propagating WARN level on Logger[org.springframework.boot.actuate.endpoint.jmx] onto the JUL framework
+01:22:53,496 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+01:22:53,496 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@628b1538 - Propagating INFO level on Logger[ROOT] onto the JUL framework
+01:22:53,496 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [console] to Logger[ROOT]
+01:22:53,496 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@36995784 - End of configuration.
+01:22:53,497 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@58dd1d0c - Registering current configuration as safe fallback point
 
 
   .   ____          _            __ _ _
@@ -168,7 +168,7 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.3)
 
-X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=670532496ce193b50963ad392956a403X-B3-TraceId=67053249cc9a2a9a321fa3bd0e52ff90X-B3-TraceId=6705324aa1296f57f1d066da81d53132X-B3-TraceId=6705324ad235fea79672073d218e85d1X-B3-TraceId=6705324a0730c65dd1961dc078a0fb1ejakarta.validation.ConstraintViolationException: getCommentsByPostId.postId: Invalid post ID
+X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=67054044665207b60a6a18cd8790f0d7X-B3-TraceId=670540448389f0e017bcfa682023ac29X-B3-TraceId=670540444cfaf7117827d8e1e8cc4bb5X-B3-TraceId=67054044c29b37c6d569d351c6085441X-B3-TraceId=67054044b4b0f6d3edf61655d717504fjakarta.validation.ConstraintViolationException: getCommentsByPostId.postId: Invalid post ID
 	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:138)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
@@ -292,7 +292,7 @@ X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-B3-TraceId=X-
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-X-B3-TraceId=6705324a78435fdf83f89a5ee47254cfjakarta.validation.ConstraintViolationException: getPostsById.postId: Invalid post ID
+X-B3-TraceId=670540448a8324bd2fb97d3197ae861djakarta.validation.ConstraintViolationException: getPostsById.postId: Invalid post ID
 	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:138)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
@@ -416,7 +416,7 @@ X-B3-TraceId=6705324a78435fdf83f89a5ee47254cfjakarta.validation.ConstraintViolat
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-X-B3-TraceId=6705324a9c7e08e0514858b30eba4b31jakarta.validation.ConstraintViolationException: getPosts.userIds: Invalid post ID
+X-B3-TraceId=670540446e9be50f1349e5fbf25f33cbjakarta.validation.ConstraintViolationException: getPosts.userIds: Invalid post ID
 	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:138)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
@@ -540,7 +540,7 @@ X-B3-TraceId=6705324a9c7e08e0514858b30eba4b31jakarta.validation.ConstraintViolat
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-X-B3-TraceId=6705324ad8b4f6e49d670ce73656e4efjakarta.validation.ConstraintViolationException: getCommentsByPostIds.postIds: Invalid post ID
+X-B3-TraceId=67054044759a802a2cfa626a0906e6bfjakarta.validation.ConstraintViolationException: getCommentsByPostIds.postIds: Invalid post ID
 	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:138)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
@@ -675,7 +675,7 @@ X-B3-TraceId=6705324ad8b4f6e49d670ce73656e4efjakarta.validation.ConstraintViolat
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10</a> at 9 Oct 2024, 12:23:31 am</p>
+<a href="http://www.gradle.org">Gradle 8.10</a> at 9 Oct 2024, 1:23:16 am</p>
 </div>
 </div>
 </body>

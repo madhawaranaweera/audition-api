@@ -53,6 +53,7 @@ public class AuditionIntegrationClient {
             final AuditionPost[] posts = restTemplate.getForObject(urlWithParams, AuditionPost[].class);
             return posts != null ? List.of(posts) : List.of();
         } catch (HttpClientErrorException e) {
+            auditionLogger.error(LOG, "Error fetching posts for user IDs={}", userIds);
             throw new SystemException("Error fetching posts for user IDs " + userIds, e.getMessage(),
                 e.getRawStatusCode(), e);
         }
@@ -73,6 +74,7 @@ public class AuditionIntegrationClient {
 
             return restTemplate.getForObject(urlWithParams, AuditionPost.class);
         } catch (final HttpClientErrorException e) {
+            auditionLogger.error(LOG, "Error fetching posts for post ID={}", id);
             if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
                 throw new SystemException("Cannot find a Post with id " + id, "Resource Not Found",
                     404, e);
@@ -99,6 +101,7 @@ public class AuditionIntegrationClient {
             final AuditionComment[] posts = restTemplate.getForObject(urlWithParams, AuditionComment[].class, id);
             return posts != null ? List.of(posts) : List.of();
         } catch (final HttpClientErrorException e) {
+            auditionLogger.error(LOG, "Error fetching comments for post ID={}", id);
             if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
                 throw new SystemException("Cannot find a Post with id " + id, "Resource Not Found",
                     404, e);
@@ -128,6 +131,7 @@ public class AuditionIntegrationClient {
 
             return commentsArray != null ? List.of(commentsArray) : List.of();
         } catch (HttpClientErrorException e) {
+            auditionLogger.error(LOG, "Error fetching comments for post IDs={}", postIds);
             throw new SystemException("Error fetching comments for postIds " + postIds, e.getMessage(),
                 e.getRawStatusCode(), e);
         }

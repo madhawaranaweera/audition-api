@@ -31,9 +31,9 @@ public class AuditionLogger {
         }
     }
 
-    public void error(final Logger logger, final String message) {
+    public void error(final Logger logger, final String message, final Object object) {
         if (logger.isErrorEnabled()) {
-            logger.error(message);
+            logger.error(message, object);
         }
     }
 

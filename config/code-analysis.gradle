@@ -22,7 +22,7 @@ pmd {
     toolVersion = "6.45.0"
     rulesMinimumPriority = 5
 
-    ignoreFailures = true
+    ignoreFailures = false
     ruleSetFiles = files("$rootProject.projectDir/config/pmd/ruleset.xml")
 }
 
@@ -50,7 +50,6 @@ jacocoTestCoverageVerification {
             enabled = false
             element = 'CLASS'
             includes = ['org.gradle.*']
-            excludes = ['com.audition.web.advice.ExceptionControllerAdvice']
 
             limit {
                 counter = 'LINE'

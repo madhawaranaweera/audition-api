@@ -31,9 +31,9 @@ import org.springframework.stereotype.Component;
         }
 <span class="fc" id="L32">    }</span>
 
-    public void error(final Logger logger, final String message) {
+    public void error(final Logger logger, final String message, final Object object) {
 <span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if (logger.isErrorEnabled()) {</span>
-<span class="fc" id="L36">            logger.error(message);</span>
+<span class="fc" id="L36">            logger.error(message, object);</span>
         }
 <span class="fc" id="L38">    }</span>
 
