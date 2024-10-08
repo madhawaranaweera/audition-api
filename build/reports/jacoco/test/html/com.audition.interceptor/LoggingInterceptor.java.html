@@ -19,14 +19,14 @@ import org.springframework.stereotype.Component;
     @Override
     public ClientHttpResponse intercept(final HttpRequest request, final byte[] body,
         final ClientHttpRequestExecution execution) throws IOException {
-<span class="fc" id="L22">        LOGGER.info(&quot;Request URI: {}&quot;, request.getURI());</span>
-<span class="fc" id="L23">        LOGGER.info(&quot;Request Method: {}&quot;, request.getMethod());</span>
-<span class="fc" id="L24">        LOGGER.info(&quot;Request Body: {}&quot;, new String(body, StandardCharsets.UTF_8));</span>
+<span class="fc" id="L22">        LOGGER.debug(&quot;Request URI={}&quot;, request.getURI());</span>
+<span class="fc" id="L23">        LOGGER.debug(&quot;Request Method={}&quot;, request.getMethod());</span>
+<span class="fc" id="L24">        LOGGER.debug(&quot;Request Body={}&quot;, new String(body, StandardCharsets.UTF_8));</span>
 
 <span class="fc" id="L26">        final ClientHttpResponse response = execution.execute(request, body);</span>
 
-<span class="fc" id="L28">        LOGGER.info(&quot;Response Status Code: {}&quot;, response.getStatusCode());</span>
-<span class="fc" id="L29">        LOGGER.info(&quot;Response Body: {}&quot;, new String(response.getBody().readAllBytes(), StandardCharsets.UTF_8));</span>
+<span class="fc" id="L28">        LOGGER.debug(&quot;Response Status Code={}&quot;, response.getStatusCode());</span>
+<span class="fc" id="L29">        LOGGER.debug(&quot;Response Body={}&quot;, new String(response.getBody().readAllBytes(), StandardCharsets.UTF_8));</span>
 
 <span class="fc" id="L31">        return response;</span>
     }

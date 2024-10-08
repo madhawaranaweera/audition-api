@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
@@ -17,62 +18,62 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
-<span class="fc" id="L24">public class WebServiceConfiguration implements WebMvcConfigurer {</span>
+<span class="fc" id="L26">@RequiredArgsConstructor</span>
+public class WebServiceConfiguration implements WebMvcConfigurer {
 
     private static final String YEAR_MONTH_DAY_PATTERN = &quot;yyyy-MM-dd&quot;;
+    private final ResponseHeaderInjector responseHeaderInjector;
 
     @Bean
     public ObjectMapper objectMapper() {
-        // TODO configure Jackson Object mapper that
-        //  1. allows for date format as yyyy-MM-dd
-        //  2. Does not fail on unknown properties
-        //  3. maps to camelCase
-        //  4. Does not include null values or empty values
-        //  5. does not write datas as timestamps.
 
-<span class="fc" id="L37">        final ObjectMapper objectMapper = new ObjectMapper();</span>
-<span class="fc" id="L38">        objectMapper.configOverride(java.time.LocalDate.class)</span>
-<span class="fc" id="L39">            .setFormat(JsonFormat.Value.forPattern(YEAR_MONTH_DAY_PATTERN));</span>
-<span class="fc" id="L40">        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);</span>
-<span class="fc" id="L41">        objectMapper.setPropertyNamingStrategy(PropertyNamingStrategies.LOWER_CAMEL_CASE);</span>
-<span class="fc" id="L42">        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);</span>
-<span class="fc" id="L43">        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);</span>
-<span class="fc" id="L44">        objectMapper.registerModule(new JavaTimeModule());</span>
-<span class="fc" id="L45">        return objectMapper;</span>
+<span class="fc" id="L35">        final ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="fc" id="L36">        objectMapper.configOverride(java.time.LocalDate.class)</span>
+<span class="fc" id="L37">            .setFormat(JsonFormat.Value.forPattern(YEAR_MONTH_DAY_PATTERN));</span>
+<span class="fc" id="L38">        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);</span>
+<span class="fc" id="L39">        objectMapper.setPropertyNamingStrategy(PropertyNamingStrategies.LOWER_CAMEL_CASE);</span>
+<span class="fc" id="L40">        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);</span>
+<span class="fc" id="L41">        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);</span>
+<span class="fc" id="L42">        objectMapper.registerModule(new JavaTimeModule());</span>
+<span class="fc" id="L43">        return objectMapper;</span>
     }
 
     @Bean
     public RestTemplate restTemplate(final ObjectMapper objectMapper) {
-<span class="fc" id="L50">        final RestTemplate restTemplate = new RestTemplate(</span>
-<span class="fc" id="L51">            new BufferingClientHttpRequestFactory(createClientFactory()));</span>
+<span class="fc" id="L48">        final RestTemplate restTemplate = new RestTemplate(</span>
+<span class="fc" id="L49">            new BufferingClientHttpRequestFactory(createClientFactory()));</span>
 
-<span class="fc" id="L53">        restTemplate.getMessageConverters().forEach(converter -&gt; {</span>
-<span class="fc bfc" id="L54" title="All 2 branches covered.">            if (converter instanceof MappingJackson2HttpMessageConverter) {</span>
-<span class="fc" id="L55">                ((MappingJackson2HttpMessageConverter) converter).setObjectMapper(objectMapper);</span>
+<span class="fc" id="L51">        restTemplate.getMessageConverters().forEach(converter -&gt; {</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">            if (converter instanceof MappingJackson2HttpMessageConverter) {</span>
+<span class="fc" id="L53">                ((MappingJackson2HttpMessageConverter) converter).setObjectMapper(objectMapper);</span>
             }
-<span class="fc" id="L57">        });</span>
-        // TODO use object mapper
-        // TODO create a logging interceptor that logs request/response for rest template calls.
+<span class="fc" id="L55">        });</span>
 
-<span class="fc" id="L61">        restTemplate.setInterceptors(interceptors());</span>
+<span class="fc" id="L57">        restTemplate.setInterceptors(interceptors());</span>
 
-<span class="fc" id="L63">        return restTemplate;</span>
+<span class="fc" id="L59">        return restTemplate;</span>
     }
 
+    @Override
+    public void addInterceptors(final InterceptorRegistry registry) {
+<span class="fc" id="L64">        registry.addInterceptor(responseHeaderInjector);</span>
+<span class="fc" id="L65">    }</span>
+
     private List&lt;ClientHttpRequestInterceptor&gt; interceptors() {
-<span class="fc" id="L67">        final List&lt;ClientHttpRequestInterceptor&gt; interceptors = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L68">        interceptors.add(new LoggingInterceptor());</span>
-<span class="fc" id="L69">        return interceptors;</span>
+<span class="fc" id="L68">        final List&lt;ClientHttpRequestInterceptor&gt; interceptors = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L69">        interceptors.add(new LoggingInterceptor());</span>
+<span class="fc" id="L70">        return interceptors;</span>
     }
 
     private SimpleClientHttpRequestFactory createClientFactory() {
-<span class="fc" id="L73">        final SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();</span>
-<span class="fc" id="L74">        requestFactory.setOutputStreaming(false);</span>
-<span class="fc" id="L75">        return requestFactory;</span>
+<span class="fc" id="L74">        final SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();</span>
+<span class="fc" id="L75">        requestFactory.setOutputStreaming(false);</span>
+<span class="fc" id="L76">        return requestFactory;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

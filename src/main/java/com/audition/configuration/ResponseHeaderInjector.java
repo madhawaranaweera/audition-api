@@ -14,7 +14,7 @@ public class ResponseHeaderInjector implements HandlerInterceptor {
     private final Tracer tracer;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+    public boolean preHandle(final HttpServletRequest request, final HttpServletResponse response, final Object handler)
         throws Exception {
         final String traceId = tracer.currentSpan().context().traceIdString();
         final String spanId = tracer.currentSpan().context().spanIdString();

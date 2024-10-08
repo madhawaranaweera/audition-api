@@ -20,26 +20,23 @@ public class AuditionService {
     private final AuditionIntegrationClient auditionIntegrationClient;
     private final AuditionLogger auditionLogger;
 
-
     public List<AuditionPost> getPosts(final List<String> userIds) {
-        auditionLogger.info(LOG, "Fetching posts for user IDs: {}",
-            userIds != null && !userIds.isEmpty() ? userIds : "No user IDs provided (fetching all posts)");
+        auditionLogger.info(LOG, "Fetching posts for user IDs={}", userIds);
         return auditionIntegrationClient.getPosts(userIds);
     }
 
     public AuditionPost getPostById(final String postId) {
-        auditionLogger.info(LOG, "Fetching post with ID: {}", postId);
+        auditionLogger.info(LOG, "Fetching post with ID={}", postId);
         return auditionIntegrationClient.getPostById(postId);
     }
 
     public List<AuditionComment> getCommentsByPostId(final String postId) {
-        auditionLogger.info(LOG, "Fetching comments for post ID: {}", postId);
+        auditionLogger.info(LOG, "Fetching comments for post ID={}", postId);
         return auditionIntegrationClient.getCommentsByPostId(postId);
     }
 
     public List<AuditionComment> getComments(final List<String> userIds) {
-        auditionLogger.info(LOG, "Fetching comments for user IDs: {}",
-            userIds != null && !userIds.isEmpty() ? userIds : "No user IDs provided (fetching all comments)");
+        auditionLogger.info(LOG, "Fetching comments for user IDs={}", userIds);
         return auditionIntegrationClient.getComments(userIds);
     }
 }

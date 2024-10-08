@@ -1,7 +1,7 @@
 package com.audition.web;
 
 import com.audition.common.logging.AuditionLogger;
-import com.audition.common.validator.ValidPostId;
+import com.audition.common.validator.ValidId;
 import com.audition.model.AuditionComment;
 import com.audition.model.AuditionPost;
 import com.audition.service.AuditionService;
@@ -43,12 +43,8 @@ public class AuditionCommentController {
     })
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<AuditionComment> getCommentsByPostIds(
-        @RequestParam(value = "postIds", required = false) @Valid @ValidPostId final List<String> postIds) {
-        auditionLogger.info(LOG, "Fetching comments for post IDs: {}",
-            postIds != null && !postIds.isEmpty() ? postIds : "No post IDs provided (fetching all comments)");
+        @RequestParam(value = "postIds", required = false) @Valid @ValidId final List<String> postIds) {
+        auditionLogger.info(LOG, "Fetching comments for post IDs={}", postIds);
         return auditionService.getComments(postIds);
     }
-
-    // TODO Add additional methods to return comments for each post. Hint: Check https://jsonplaceholder.typicode.com/
-
 }

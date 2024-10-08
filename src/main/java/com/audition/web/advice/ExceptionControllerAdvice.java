@@ -36,32 +36,34 @@ public class ExceptionControllerAdvice extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(HttpClientErrorException.class)
     public ProblemDetail handleHttpClientException(final HttpClientErrorException e) {
-        logger.error(LOG, e.getMessage() + e.getStatusCode());
-        return createProblemDetail(e, e.getStatusCode());
+        final ProblemDetail problemDetail = createProblemDetail(e, e.getStatusCode());
+        logger.logStandardProblemDetail(LOG, problemDetail, e);
+        return problemDetail;
     }
 
 
     @ExceptionHandler(Exception.class)
     public ProblemDetail handleMainException(final Exception e) {
-        // TODO Add handling for Exception
         final HttpStatusCode status = getHttpStatusCodeFromException(e);
-        logger.error(LOG, e.getMessage() + status.value());
-        return createProblemDetail(e, status);
+        final ProblemDetail problemDetail = createProblemDetail(e, status);
+        logger.logStandardProblemDetail(LOG, problemDetail, e);
+        return problemDetail;
     }
 
     @ExceptionHandler(SystemException.class)
     public ProblemDetail handleSystemException(final SystemException e) {
-        // TODO `Add Handling for SystemException
-        logger.error(LOG, e.getMessage() + e.getStatusCode());
         final HttpStatusCode status = getHttpStatusCodeFromSystemException(e);
-        return createProblemDetail(e, status);
+        final ProblemDetail problemDetail = createProblemDetail(e, status);
+        logger.logStandardProblemDetail(LOG, problemDetail, e);
+        return problemDetail;
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
     public ProblemDetail handleConstraintViolationException(final ConstraintViolationException e) {
         final HttpStatusCode status = getHttpStatusCodeFromException(e);
-        logger.error(LOG, e.getMessage() + status.value());
-        return createProblemDetail(e, status);
+        final ProblemDetail problemDetail = createProblemDetail(e, status);
+        logger.logStandardProblemDetail(LOG, problemDetail, e);
+        return problemDetail;
     }
 
     private ProblemDetail createProblemDetail(final Exception exception,

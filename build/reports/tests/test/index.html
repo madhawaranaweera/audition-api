@@ -20,13 +20,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">50</div>
+<div class="counter">47</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">6</div>
 <p>failures</p>
 </div>
 </td>
@@ -38,7 +38,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">2.564s</div>
+<div class="counter">2.460s</div>
 <p>duration</p>
 </div>
 </td>
@@ -47,8 +47,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">87%</div>
 <p>successful</p>
 </div>
 </td>
@@ -58,13 +58,45 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Packages</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Classes</a>
+<a href="#tab1">Packages</a>
+</li>
+<li>
+<a href="#tab2">Classes</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<ul class="linkList">
+<li>
+<a href="classes/com.audition.service.AuditionServiceTest.html">AuditionServiceTest</a>.
+<a href="classes/com.audition.service.AuditionServiceTest.html#testGetCommentsByPostIdSuccess()">testGetCommentsByPostIdSuccess()</a>
+</li>
+<li>
+<a href="classes/com.audition.service.AuditionServiceTest.html">AuditionServiceTest</a>.
+<a href="classes/com.audition.service.AuditionServiceTest.html#testGetCommentsNoUserIdsProvided()">testGetCommentsNoUserIdsProvided()</a>
+</li>
+<li>
+<a href="classes/com.audition.service.AuditionServiceTest.html">AuditionServiceTest</a>.
+<a href="classes/com.audition.service.AuditionServiceTest.html#testGetCommentsSuccess()">testGetCommentsSuccess()</a>
+</li>
+<li>
+<a href="classes/com.audition.service.AuditionServiceTest.html">AuditionServiceTest</a>.
+<a href="classes/com.audition.service.AuditionServiceTest.html#testGetPostByIdSuccess()">testGetPostByIdSuccess()</a>
+</li>
+<li>
+<a href="classes/com.audition.service.AuditionServiceTest.html">AuditionServiceTest</a>.
+<a href="classes/com.audition.service.AuditionServiceTest.html#testGetPostsNoUserIds()">testGetPostsNoUserIds()</a>
+</li>
+<li>
+<a href="classes/com.audition.service.AuditionServiceTest.html">AuditionServiceTest</a>.
+<a href="classes/com.audition.service.AuditionServiceTest.html#testGetPostsSuccess()">testGetPostsSuccess()</a>
+</li>
+</ul>
+</div>
+<div id="tab1" class="tab">
 <h2>Packages</h2>
 <table>
 <thead>
@@ -82,10 +114,10 @@
 <td class="success">
 <a href="packages/com.audition.common.html">com.audition.common</a>
 </td>
-<td>24</td>
+<td>20</td>
 <td>0</td>
 <td>0</td>
-<td>1.329s</td>
+<td>1.024s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -95,33 +127,33 @@
 <td>8</td>
 <td>0</td>
 <td>0</td>
-<td>0.394s</td>
+<td>0.624s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
 <td class="success">
 <a href="packages/com.audition.integration.html">com.audition.integration</a>
 </td>
-<td>12</td>
+<td>13</td>
 <td>0</td>
 <td>0</td>
-<td>0.778s</td>
+<td>0.768s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="packages/com.audition.service.html">com.audition.service</a>
 </td>
 <td>6</td>
+<td>6</td>
 <td>0</td>
-<td>0</td>
-<td>0.063s</td>
-<td class="success">100%</td>
+<td>0.044s</td>
+<td class="failures">0%</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Classes</h2>
 <table>
 <thead>
@@ -142,17 +174,17 @@
 <td>8</td>
 <td>0</td>
 <td>0</td>
-<td>1.292s</td>
+<td>0.996s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
 <td class="success">
-<a href="classes/com.audition.common.PostIdValidatorTest.html">com.audition.common.PostIdValidatorTest</a>
+<a href="classes/com.audition.common.IdValidatorTest.html">com.audition.common.IdValidatorTest</a>
 </td>
 <td>4</td>
 <td>0</td>
 <td>0</td>
-<td>0.025s</td>
+<td>0.021s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -162,48 +194,48 @@
 <td>8</td>
 <td>0</td>
 <td>0</td>
-<td>0.008s</td>
+<td>0.007s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
 <td class="success">
-<a href="classes/com.audition.common.UserIdValidatorTest.html">com.audition.common.UserIdValidatorTest</a>
-</td>
-<td>4</td>
-<td>0</td>
-<td>0</td>
-<td>0.004s</td>
-<td class="success">100%</td>
-</tr>
-<tr>
-<td class="success">
-<a href="classes/com.audition.contract.AuditionControllerContractTest.html">com.audition.contract.AuditionControllerContractTest</a>
+<a href="classes/com.audition.contract.AuditionContractTest.html">com.audition.contract.AuditionContractTest</a>
 </td>
 <td>8</td>
 <td>0</td>
 <td>0</td>
-<td>0.394s</td>
+<td>0.624s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
 <td class="success">
-<a href="classes/com.audition.integration.AuditionIntegrationTest.html">com.audition.integration.AuditionIntegrationTest</a>
-</td>
-<td>12</td>
-<td>0</td>
-<td>0</td>
-<td>0.778s</td>
-<td class="success">100%</td>
-</tr>
-<tr>
-<td class="success">
-<a href="classes/com.audition.service.AuditionServiceTest.html">com.audition.service.AuditionServiceTest</a>
+<a href="classes/com.audition.integration.AuditionIntegrationNegativeTest.html">com.audition.integration.AuditionIntegrationNegativeTest</a>
 </td>
 <td>6</td>
 <td>0</td>
 <td>0</td>
-<td>0.063s</td>
+<td>0.606s</td>
 <td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.audition.integration.AuditionIntegrationPositiveTest.html">com.audition.integration.AuditionIntegrationPositiveTest</a>
+</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0.162s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/com.audition.service.AuditionServiceTest.html">com.audition.service.AuditionServiceTest</a>
+</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+<td>0.044s</td>
+<td class="failures">0%</td>
 </tr>
 </tbody>
 </table>
@@ -216,7 +248,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10</a> at 8 Oct 2024, 6:31:23 pm</p>
+<a href="http://www.gradle.org">Gradle 8.10</a> at 9 Oct 2024, 12:23:31 am</p>
 </div>
 </div>
 </body>

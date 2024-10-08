@@ -31,12 +31,6 @@ public class WebServiceConfiguration implements WebMvcConfigurer {
 
     @Bean
     public ObjectMapper objectMapper() {
-        // TODO configure Jackson Object mapper that
-        //  1. allows for date format as yyyy-MM-dd
-        //  2. Does not fail on unknown properties
-        //  3. maps to camelCase
-        //  4. Does not include null values or empty values
-        //  5. does not write datas as timestamps.
 
         final ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configOverride(java.time.LocalDate.class)
@@ -59,12 +53,15 @@ public class WebServiceConfiguration implements WebMvcConfigurer {
                 ((MappingJackson2HttpMessageConverter) converter).setObjectMapper(objectMapper);
             }
         });
-        // TODO use object mapper
-        // TODO create a logging interceptor that logs request/response for rest template calls.
 
         restTemplate.setInterceptors(interceptors());
 
         return restTemplate;
+    }
+
+    @Override
+    public void addInterceptors(final InterceptorRegistry registry) {
+        registry.addInterceptor(responseHeaderInjector);
     }
 
     private List<ClientHttpRequestInterceptor> interceptors() {
@@ -77,10 +74,5 @@ public class WebServiceConfiguration implements WebMvcConfigurer {
         final SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
         requestFactory.setOutputStreaming(false);
         return requestFactory;
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(responseHeaderInjector);
     }
 }

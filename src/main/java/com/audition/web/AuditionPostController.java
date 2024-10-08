@@ -1,8 +1,7 @@
 package com.audition.web;
 
 import com.audition.common.logging.AuditionLogger;
-import com.audition.common.validator.ValidPostId;
-import com.audition.common.validator.ValidUserId;
+import com.audition.common.validator.ValidId;
 import com.audition.model.AuditionComment;
 import com.audition.model.AuditionPost;
 import com.audition.service.AuditionService;
@@ -50,15 +49,11 @@ public class AuditionPostController {
                 schema = @Schema(implementation = AuditionPost.class))),
         @ApiResponse(responseCode = "400", description = "Invalid user IDs supplied")
     })
-    // TODO Add a query param that allows data filtering. The intent of the filter is at developers discretion.
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<AuditionPost> getPosts(
-        @RequestParam(value = "userIds", required = false) @Valid @ValidUserId final List<String> userIds) {
+        @RequestParam(value = "userIds", required = false) @Valid @ValidId final List<String> userIds) {
 
-        auditionLogger.info(LOG, "Fetching posts. Filter applied for userIds: {}",
-            userIds != null && !userIds.isEmpty() ? userIds : "No filter (fetching all posts)");
-
-        // TODO Add logic that filters response data based on the query param
+        auditionLogger.info(LOG, "Fetching posts. Filter applied for userIds={}", userIds);
 
         return auditionService.getPosts(userIds);
     }
@@ -77,12 +72,9 @@ public class AuditionPostController {
         @ApiResponse(responseCode = "404", description = "Post not found")
     })
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody AuditionPost getPostsById(@PathVariable("id") @ValidPostId final String postId) {
-        auditionLogger.info(LOG, "Fetching post with ID: {}", postId);
+    public @ResponseBody AuditionPost getPostsById(@PathVariable("id") @ValidId final String postId) {
+        auditionLogger.info(LOG, "Fetching post with ID={}", postId);
         return auditionService.getPostById(postId);
-
-        // TODO Add input validation
-
     }
 
     @Operation(
@@ -100,10 +92,8 @@ public class AuditionPostController {
     })
     @RequestMapping(value = "/{id}/comments", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<AuditionComment> getCommentsByPostId(
-        @PathVariable("id") @ValidPostId final String postId) {
-        auditionLogger.info(LOG, "Fetching comments for post ID: {}", postId);
+        @PathVariable("id") @ValidId final String postId) {
+        auditionLogger.info(LOG, "Fetching comments for post ID={}", postId);
         return auditionService.getCommentsByPostId(postId);
-
-        // TODO Add input validation
     }
 }

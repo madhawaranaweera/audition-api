@@ -63,9 +63,9 @@ import org.springframework.stereotype.Component;
 <span class="fc" id="L63">            .append(&quot;, Title: &quot;).append(problemDetail.getTitle())</span>
 <span class="fc" id="L64">            .append(&quot;, Status: &quot;).append(problemDetail.getStatus())</span>
 <span class="pc bpc" id="L65" title="1 of 2 branches missed.">            .append(&quot;, Detail: &quot;).append(problemDetail.getDetail() != null ? problemDetail.getDetail() : &quot;N/A&quot;)</span>
-<span class="pc bpc" id="L66" title="1 of 2 branches missed.">            .append(&quot;, Instance: &quot;).append(problemDetail.getInstance() != null ? problemDetail.getInstance() : &quot;N/A&quot;);</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">            .append(&quot;, Instance: &quot;).append(problemDetail.getInstance() != null ? problemDetail.getInstance() : &quot;N/A&quot;);</span>
 
-<span class="pc bpc" id="L68" title="2 of 4 branches missed.">        if (problemDetail.getProperties() != null &amp;&amp; !problemDetail.getProperties().isEmpty()) {</span>
+<span class="pc bpc" id="L68" title="1 of 4 branches missed.">        if (problemDetail.getProperties() != null &amp;&amp; !problemDetail.getProperties().isEmpty()) {</span>
 <span class="fc" id="L69">            messageBuilder.append(&quot;, Properties: &quot;).append(problemDetail.getProperties());</span>
         }
 

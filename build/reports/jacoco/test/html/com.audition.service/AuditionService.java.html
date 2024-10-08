@@ -20,27 +20,24 @@ public class AuditionService {
     private final AuditionIntegrationClient auditionIntegrationClient;
     private final AuditionLogger auditionLogger;
 
-
     public List&lt;AuditionPost&gt; getPosts(final List&lt;String&gt; userIds) {
-<span class="fc" id="L25">        auditionLogger.info(LOG, &quot;Fetching posts for user IDs: {}&quot;,</span>
-<span class="pc bpc" id="L26" title="1 of 4 branches missed.">            userIds != null &amp;&amp; !userIds.isEmpty() ? userIds : &quot;No user IDs provided (fetching all posts)&quot;);</span>
-<span class="fc" id="L27">        return auditionIntegrationClient.getPosts(userIds);</span>
+<span class="fc" id="L24">        auditionLogger.info(LOG, &quot;Fetching posts for user IDs={}&quot;, userIds);</span>
+<span class="fc" id="L25">        return auditionIntegrationClient.getPosts(userIds);</span>
     }
 
     public AuditionPost getPostById(final String postId) {
-<span class="fc" id="L31">        auditionLogger.info(LOG, &quot;Fetching post with ID: {}&quot;, postId);</span>
-<span class="fc" id="L32">        return auditionIntegrationClient.getPostById(postId);</span>
+<span class="fc" id="L29">        auditionLogger.info(LOG, &quot;Fetching post with ID={}&quot;, postId);</span>
+<span class="fc" id="L30">        return auditionIntegrationClient.getPostById(postId);</span>
     }
 
     public List&lt;AuditionComment&gt; getCommentsByPostId(final String postId) {
-<span class="fc" id="L36">        auditionLogger.info(LOG, &quot;Fetching comments for post ID: {}&quot;, postId);</span>
-<span class="fc" id="L37">        return auditionIntegrationClient.getCommentsByPostId(postId);</span>
+<span class="fc" id="L34">        auditionLogger.info(LOG, &quot;Fetching comments for post ID={}&quot;, postId);</span>
+<span class="fc" id="L35">        return auditionIntegrationClient.getCommentsByPostId(postId);</span>
     }
 
     public List&lt;AuditionComment&gt; getComments(final List&lt;String&gt; userIds) {
-<span class="fc" id="L41">        auditionLogger.info(LOG, &quot;Fetching comments for user IDs: {}&quot;,</span>
-<span class="pc bpc" id="L42" title="1 of 4 branches missed.">            userIds != null &amp;&amp; !userIds.isEmpty() ? userIds : &quot;No user IDs provided (fetching all comments)&quot;);</span>
-<span class="fc" id="L43">        return auditionIntegrationClient.getComments(userIds);</span>
+<span class="fc" id="L39">        auditionLogger.info(LOG, &quot;Fetching comments for user IDs={}&quot;, userIds);</span>
+<span class="fc" id="L40">        return auditionIntegrationClient.getComments(userIds);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -19,14 +19,14 @@ public class LoggingInterceptor implements ClientHttpRequestInterceptor {
     @Override
     public ClientHttpResponse intercept(final HttpRequest request, final byte[] body,
         final ClientHttpRequestExecution execution) throws IOException {
-        LOGGER.debug("Request URI: {}", request.getURI());
-        LOGGER.debug("Request Method: {}", request.getMethod());
-        LOGGER.debug("Request Body: {}", new String(body, StandardCharsets.UTF_8));
+        LOGGER.debug("Request URI={}", request.getURI());
+        LOGGER.debug("Request Method={}", request.getMethod());
+        LOGGER.debug("Request Body={}", new String(body, StandardCharsets.UTF_8));
 
         final ClientHttpResponse response = execution.execute(request, body);
 
-        LOGGER.debug("Response Status Code: {}", response.getStatusCode());
-        LOGGER.debug("Response Body: {}", new String(response.getBody().readAllBytes(), StandardCharsets.UTF_8));
+        LOGGER.debug("Response Status Code={}", response.getStatusCode());
+        LOGGER.debug("Response Body={}", new String(response.getBody().readAllBytes(), StandardCharsets.UTF_8));
 
         return response;
     }

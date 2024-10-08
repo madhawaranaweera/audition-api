@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.audition.common.SystemExceptionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-10-08T07:31:03" hostname="Madhawas-MacBook-Pro.local" time="0.015">
+<testsuite name="com.audition.common.SystemExceptionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-10-08T13:23:12" hostname="Madhawas-MacBook-Pro.local" time="0.011">
   <properties/>
-  <testcase name="testConstructorWithMessageAndErrorCode()" classname="com.audition.common.SystemExceptionTest" time="0.006"/>
-  <testcase name="testConstructorWithDetailTitleErrorCodeAndThrowable()" classname="com.audition.common.SystemExceptionTest" time="0.001"/>
+  <testcase name="testConstructorWithMessageAndErrorCode()" classname="com.audition.common.SystemExceptionTest" time="0.004"/>
+  <testcase name="testConstructorWithDetailTitleErrorCodeAndThrowable()" classname="com.audition.common.SystemExceptionTest" time="0.0"/>
   <testcase name="testConstructorWithDetailTitleAndErrorCode()" classname="com.audition.common.SystemExceptionTest" time="0.0"/>
   <testcase name="testConstructorWithMessageAndThrowable()" classname="com.audition.common.SystemExceptionTest" time="0.0"/>
   <testcase name="testConstructorWithMessage()" classname="com.audition.common.SystemExceptionTest" time="0.0"/>
-  <testcase name="testConstructorWithDetailErrorCodeAndThrowable()" classname="com.audition.common.SystemExceptionTest" time="0.0"/>
-  <testcase name="testConstructorWithDetailTitleAndThrowable()" classname="com.audition.common.SystemExceptionTest" time="0.0"/>
+  <testcase name="testConstructorWithDetailErrorCodeAndThrowable()" classname="com.audition.common.SystemExceptionTest" time="0.001"/>
+  <testcase name="testConstructorWithDetailTitleAndThrowable()" classname="com.audition.common.SystemExceptionTest" time="0.001"/>
   <testcase name="testDefaultConstructor()" classname="com.audition.common.SystemExceptionTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

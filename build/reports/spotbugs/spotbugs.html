@@ -892,10 +892,9 @@
                {className: "com.audition.AuditionApplication", packageName: "com.audition", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
                {className: "com.audition.common.exception.SystemException", packageName: "com.audition.common.exception", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
                {className: "com.audition.common.logging.AuditionLogger", packageName: "com.audition.common.logging", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
-               {className: "com.audition.common.validator.PostIdValidator", packageName: "com.audition.common.validator", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
-               {className: "com.audition.common.validator.UserIdValidator", packageName: "com.audition.common.validator", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
-               {className: "com.audition.common.validator.ValidPostId", packageName: "com.audition.common.validator", isInterface: "true", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
-               {className: "com.audition.common.validator.ValidUserId", packageName: "com.audition.common.validator", isInterface: "true", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
+               {className: "com.audition.common.validator.IdValidator", packageName: "com.audition.common.validator", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
+               {className: "com.audition.common.validator.ValidId", packageName: "com.audition.common.validator", isInterface: "true", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
+               {className: "com.audition.configuration.ResponseHeaderInjector", packageName: "com.audition.configuration", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
                {className: "com.audition.configuration.WebServiceConfiguration", packageName: "com.audition.configuration", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
                {className: "com.audition.integration.AuditionIntegrationClient", packageName: "com.audition.integration", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
                {className: "com.audition.interceptor.LoggingInterceptor", packageName: "com.audition.interceptor", isInterface: "false", totalBugs: "0", bugsP1: "0", bugsP2: "0", bugsP3: "0", bugsP4: "0"},
@@ -1013,8 +1012,8 @@
                   <th>Bugs Experimental</th>
                </tr>
                <tr>
-                  <td class="summary-name">Overall (11 packages, 16 classes)</td>
-                  <td class="summary-size">423</td>
+                  <td class="summary-name">Overall (11 packages, 15 classes)</td>
+                  <td class="summary-size">414</td>
                   <td class="summary-priority-all">0</td>
                   <td class="summary-priority-1">0</td>
                   <td class="summary-priority-2">0</td>
@@ -1030,10 +1029,9 @@
                   <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/AuditionApplication.class</li>
                   <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/common/exception/SystemException.class</li>
                   <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/common/logging/AuditionLogger.class</li>
-                  <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/common/validator/PostIdValidator.class</li>
-                  <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/common/validator/UserIdValidator.class</li>
-                  <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/common/validator/ValidPostId.class</li>
-                  <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/common/validator/ValidUserId.class</li>
+                  <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/common/validator/IdValidator.class</li>
+                  <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/common/validator/ValidId.class</li>
+                  <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/configuration/ResponseHeaderInjector.class</li>
                   <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/configuration/WebServiceConfiguration.class</li>
                   <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/integration/AuditionIntegrationClient.class</li>
                   <li>/Users/madhawaranaweera/IdeaProjects/audition-api/build/classes/java/main/com/audition/interceptor/LoggingInterceptor.class</li>
@@ -1079,15 +1077,9 @@
                   <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-commons/1.10.4/a5db33c573c8755e70388f204e83000dc359b63d/micrometer-commons-1.10.4.jar</li>
                   <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-core/1.10.4/7cf119306c48caeeebf84da9c74280ebaca3f586/micrometer-core-1.10.4.jar</li>
                   <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-observation/1.10.4/96aa92ad7a18c2451c429348c0167eb08a988d4e/micrometer-observation-1.10.4.jar</li>
-                  <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-registry-prometheus/1.10.4/3ae3b798150e8f69ffcdfcbbaae767012689250d/micrometer-registry-prometheus-1.10.4.jar</li>
                   <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-tracing-bridge-brave/1.0.2/a3a01fe5eabf93588266ef1e326f9ba2dc23ba13/micrometer-tracing-bridge-brave-1.0.2.jar</li>
                   <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.micrometer/micrometer-tracing/1.0.2/3491f1271e6c458d443fe4c9cc8728f993395dca/micrometer-tracing-1.0.2.jar</li>
                   <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.projectreactor/reactor-core/3.5.3/dd102ecdb21ff78a486074dbad55331f8847eb5d/reactor-core-3.5.3.jar</li>
-                  <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.prometheus/simpleclient/0.16.0/28b0eaf7c500c506976da8d0fc9cad6c278e8d87/simpleclient-0.16.0.jar</li>
-                  <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.prometheus/simpleclient_common/0.16.0/a09a8c790a20309b942a9fdbfe77da22407096e6/simpleclient_common-0.16.0.jar</li>
-                  <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.prometheus/simpleclient_tracer_common/0.16.0/dec00ef7c6155c4ca1109ec8248f7ff58d8f6cd3/simpleclient_tracer_common-0.16.0.jar</li>
-                  <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.prometheus/simpleclient_tracer_otel/0.16.0/cc3d2b7b7cb6f077e3b1ee1d3e99eb54fddfa151/simpleclient_tracer_otel-0.16.0.jar</li>
-                  <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.prometheus/simpleclient_tracer_otel_agent/0.16.0/9d724771e339ff7ec6cd7c0cc170d3470904c5/simpleclient_tracer_otel_agent-0.16.0.jar</li>
                   <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.swagger.core.v3/swagger-annotations-jakarta/2.2.7/1629437bff242e019f5fbac9b27dddd6df47a23b/swagger-annotations-jakarta-2.2.7.jar</li>
                   <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.swagger.core.v3/swagger-annotations/2.2.7/9a630bca8950bde1a541af873aa6050851a31e72/swagger-annotations-2.2.7.jar</li>
                   <li>/Users/madhawaranaweera/.gradle/caches/modules-2/files-2.1/io.swagger.core.v3/swagger-core-jakarta/2.2.7/9111d85fc116ad6ec9d5f6f54edf81c2740e52/swagger-core-jakarta-2.2.7.jar</li>

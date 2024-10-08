@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuditionCommentController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">audition-api</a> &gt; <a href="index.source.html" class="el_package">com.audition.web</a> &gt; <span class="el_source">AuditionCommentController.java</span></div><h1>AuditionCommentController.java</h1><pre class="source lang-java linenums">package com.audition.web;
 
 import com.audition.common.logging.AuditionLogger;
-import com.audition.common.validator.ValidPostId;
+import com.audition.common.validator.ValidId;
 import com.audition.model.AuditionComment;
 import com.audition.model.AuditionPost;
 import com.audition.service.AuditionService;
@@ -43,13 +43,9 @@ public class AuditionCommentController {
     })
     @RequestMapping(value = &quot;&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List&lt;AuditionComment&gt; getCommentsByPostIds(
-        @RequestParam(value = &quot;postIds&quot;, required = false) @Valid @ValidPostId final List&lt;String&gt; postIds) {
-<span class="fc" id="L47">        auditionLogger.info(LOG, &quot;Fetching comments for post IDs: {}&quot;,</span>
-<span class="pc bpc" id="L48" title="2 of 4 branches missed.">            postIds != null &amp;&amp; !postIds.isEmpty() ? postIds : &quot;No post IDs provided (fetching all comments)&quot;);</span>
-<span class="fc" id="L49">        return auditionService.getComments(postIds);</span>
+        @RequestParam(value = &quot;postIds&quot;, required = false) @Valid @ValidId final List&lt;String&gt; postIds) {
+<span class="fc" id="L47">        auditionLogger.info(LOG, &quot;Fetching comments for post IDs={}&quot;, postIds);</span>
+<span class="fc" id="L48">        return auditionService.getComments(postIds);</span>
     }
-
-    // TODO Add additional methods to return comments for each post. Hint: Check https://jsonplaceholder.typicode.com/
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

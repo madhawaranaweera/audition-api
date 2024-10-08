@@ -28,7 +28,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*' #TODO enable only info and health for security purposes. Consider that we may want to still access other actuator endpoints securely.
+        include: info, health
 logging:
   pattern:
     level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
@@ -38,6 +38,8 @@ resilience4j:
   circuitbreaker:
     configs:
       default:
+        slidingWindowSize: 10
+        slidingWindowType: TIME_BASED
         failureRateThreshold: 50
         waitDurationInOpenState: 10000
         permittedNumberOfCallsInHalfOpenState: 3

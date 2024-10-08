@@ -6,7 +6,6 @@ import com.audition.model.AuditionComment;
 import com.audition.model.AuditionPost;
 import com.audition.web.AuditionPostController;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -14,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -37,10 +37,9 @@ public class AuditionIntegrationClient {
     public List<AuditionPost> getPosts(final List<String> userIds) {
         String urlWithParams;
         try {
-            auditionLogger.info(LOG, "Fetching posts for user IDs: {}",
-                userIds != null && !userIds.isEmpty() ? userIds : "No user IDs provided (fetching all posts)");
+            auditionLogger.info(LOG, "Fetching posts for user IDs={}", userIds);
 
-            if (userIds == null || userIds.isEmpty()) {
+            if (CollectionUtils.isEmpty(userIds)) {
                 urlWithParams = postsUrl;
             } else {
                 urlWithParams = UriComponentsBuilder
@@ -49,10 +48,10 @@ public class AuditionIntegrationClient {
                     .toUriString();
             }
 
-            auditionLogger.debug(LOG, "Making request to get post api: {}", urlWithParams);
+            auditionLogger.debug(LOG, "Making request to get post api={}", urlWithParams);
 
             final AuditionPost[] posts = restTemplate.getForObject(urlWithParams, AuditionPost[].class);
-            return posts != null ? List.of(posts) : new ArrayList<>();
+            return posts != null ? List.of(posts) : List.of();
         } catch (HttpClientErrorException e) {
             throw new SystemException("Error fetching posts for user IDs " + userIds, e.getMessage(),
                 e.getRawStatusCode(), e);
@@ -61,9 +60,8 @@ public class AuditionIntegrationClient {
 
     @CircuitBreaker(name = "getPostById")
     public AuditionPost getPostById(final String id) {
-        // TODO get post by post ID call from https://jsonplaceholder.typicode.com/posts/
         try {
-            auditionLogger.info(LOG, "Fetching post with ID: {}", id);
+            auditionLogger.info(LOG, "Fetching post with ID={}", id);
 
             final String urlWithParams = UriComponentsBuilder
                 .fromHttpUrl(postsUrl)
@@ -71,7 +69,7 @@ public class AuditionIntegrationClient {
                 .buildAndExpand(id)
                 .toUriString();
 
-            auditionLogger.debug(LOG, "Making request to get posts by id api: {}", urlWithParams);
+            auditionLogger.debug(LOG, "Making request to get posts by id api={}", urlWithParams);
 
             return restTemplate.getForObject(urlWithParams, AuditionPost.class);
         } catch (final HttpClientErrorException e) {
@@ -88,7 +86,7 @@ public class AuditionIntegrationClient {
     @CircuitBreaker(name = "getCommentsByPostId")
     public List<AuditionComment> getCommentsByPostId(final String id) {
         try {
-            auditionLogger.info(LOG, "Fetching comments for post ID: {}", id);
+            auditionLogger.info(LOG, "Fetching comments for post ID={}", id);
 
             final String urlWithParams = UriComponentsBuilder
                 .fromHttpUrl(postsUrl)
@@ -96,10 +94,10 @@ public class AuditionIntegrationClient {
                 .buildAndExpand(id)
                 .toUriString();
 
-            auditionLogger.debug(LOG, "Making request to get comments by id: {}", urlWithParams);
+            auditionLogger.debug(LOG, "Making request to get comments by id={}", urlWithParams);
 
             final AuditionComment[] posts = restTemplate.getForObject(urlWithParams, AuditionComment[].class, id);
-            return posts != null ? List.of(posts) : new ArrayList<>();
+            return posts != null ? List.of(posts) : List.of();
         } catch (final HttpClientErrorException e) {
             if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
                 throw new SystemException("Cannot find a Post with id " + id, "Resource Not Found",
@@ -115,10 +113,9 @@ public class AuditionIntegrationClient {
     public List<AuditionComment> getComments(final List<String> postIds) {
         String urlWithParams;
         try {
-            auditionLogger.info(LOG, "Fetching comments for post IDs: {}",
-                postIds != null && !postIds.isEmpty() ? postIds : "No post IDs provided (fetching all comments)");
+            auditionLogger.info(LOG, "Fetching comments for post IDs={}", postIds);
 
-            if (postIds == null || postIds.isEmpty()) {
+            if (CollectionUtils.isEmpty(postIds)) {
                 urlWithParams = commentsUrl;
             } else {
                 urlWithParams = UriComponentsBuilder
@@ -126,10 +123,10 @@ public class AuditionIntegrationClient {
                     .queryParam("postId", postIds.toArray())
                     .toUriString();
             }
-            auditionLogger.debug(LOG, "Making request to get comments: {}", urlWithParams);
+            auditionLogger.debug(LOG, "Making request to get comments={}", urlWithParams);
             final AuditionComment[] commentsArray = restTemplate.getForObject(urlWithParams, AuditionComment[].class);
 
-            return commentsArray != null ? List.of(commentsArray) : new ArrayList<>();
+            return commentsArray != null ? List.of(commentsArray) : List.of();
         } catch (HttpClientErrorException e) {
             throw new SystemException("Error fetching comments for postIds " + postIds, e.getMessage(),
                 e.getRawStatusCode(), e);
