@@ -61,7 +61,7 @@ jacocoTestCoverageVerification {
 }
 
 spotbugs {
-    ignoreFailures = true
+    ignoreFailures = false
     effort = 'max'
     reportLevel = 'high'
 }

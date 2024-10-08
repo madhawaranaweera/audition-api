@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: test
   config:
     import: "optional:configserver:"
   autoconfigure:
@@ -10,3 +12,8 @@ application:
     write-timeout: 5000
     connect-timeout: 5000
     response-timeout: 5000
+
+audition:
+  urls:
+    posts: "http://localhost:8081/posts"
+    comments: "http://localhost:8081/comments"
